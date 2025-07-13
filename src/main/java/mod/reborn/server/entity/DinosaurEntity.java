@@ -1226,7 +1226,11 @@ public abstract class DinosaurEntity extends EntityCreature implements IEntityAd
             this.dinosaurAge = this.dataManager.get(WATCHER_AGE);
             this.isSleeping = this.dataManager.get(WATCHER_IS_SLEEPING);
             this.isCarcass = this.dataManager.get(WATCHER_IS_CARCASS);
-            this.trackersUUID = new ArrayList<>(this.dataManager.get(WATCHER_TRACKERS)); // Ensure a new list is used
+            try {
+                this.trackersUUID = new ArrayList<>(this.dataManager.get(WATCHER_TRACKERS));
+            } catch (ClassCastException e) {
+                this.trackersUUID = new ArrayList<>();
+            }
             String owner = this.dataManager.get(WATCHER_OWNER_IDENTIFIER);
             this.order = Order.values()[this.dataManager.get(WATCHER_CURRENT_ORDER)];
 

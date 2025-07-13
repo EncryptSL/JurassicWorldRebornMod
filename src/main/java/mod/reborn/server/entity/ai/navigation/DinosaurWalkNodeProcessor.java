@@ -125,6 +125,9 @@ public class DinosaurWalkNodeProcessor extends WalkNodeProcessor {
 
     @Nullable
     private PathPoint getSafePoint(int x, int y, int z, int stepHeight, double currentGroundY, EnumFacing facing) {
+        if (this.blockaccess == null || this.entity == null) {
+            return null;
+        }
         PathPoint point = null;
         BlockPos pos = new BlockPos(x, y, z);
         BlockPos ground = pos.down();
