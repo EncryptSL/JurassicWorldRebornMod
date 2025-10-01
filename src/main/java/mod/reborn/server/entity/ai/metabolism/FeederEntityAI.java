@@ -29,8 +29,14 @@ public class FeederEntityAI extends EntityAIBase {
 
                 if (feeder != null) {
                     this.pos = feeder;
-                    this.path = this.dinosaur.getNavigator().getPathToPos(this.pos);
-                    return this.dinosaur.getNavigator().setPath(this.path, 1.0);
+                    try {
+                        this.path = this.dinosaur.getNavigator().getPathToPos(this.pos);
+                    } catch (Exception e) {
+                        this.path = null;
+                        return false;
+                    }
+
+                    return this.path != null && this.dinosaur.getNavigator().setPath(this.path, 1.0);
                 }
             }
         }

@@ -1,5 +1,6 @@
 package mod.reborn.server.entity.ai.util;
 
+import mod.reborn.RebornMod;
 import mod.reborn.server.entity.DinosaurEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ClassInheritanceMultiMap;
@@ -7,12 +8,13 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
 import net.minecraftforge.event.world.ChunkEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
+@Mod.EventBusSubscriber(modid = RebornMod.MODID)
 public class DinosaurPersistenceHandler {
 
     private static final Map<UUID, DinosaurEntity> globalEntityTracker = new HashMap<>();

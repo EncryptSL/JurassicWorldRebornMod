@@ -214,7 +214,6 @@ ext.display_version = short_version
 
 
 
-def llibrary_version = getVersion('LLIBRARY_VERSION', getModFile())
 
 
 
@@ -430,19 +429,6 @@ minecraft {
 
 repositories {
 
-  maven {
-
-    name 'MMD'
-
-    url 'https://mmd.tophatcat.dev/'
-
-  }
-
-  maven {
-    name 'tehnut'
-
-    url "https://maven.tehnut.info"
-  }
 
 
   maven {
@@ -462,8 +448,8 @@ dependencies {
   implementation 'org.jetbrains:annotations:20.1.0'
   deobfProvided "mezz.jei:jei_1.12.2:4.9.1.187:api"
   runtime "mezz.jei:jei_1.12.2:4.9.1.187"
-  deobfCompile "net.ilexiconn:llibrary:${llibrary_version}-1.12.2"
-  deobfCompile "mcp.mobius.waila:Hwyla:1.8.26-B41_1.12.2"
+  compile files('libs/llibrary-1.7.9-1.12.jar')
+  compile files('libs/Hwyla-1.8.26-B41_1.12.2.jar')
 }
 
 
